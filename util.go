@@ -159,6 +159,9 @@ func parseLegacyTweet(user *legacyUser, tweet *legacyTweet) *Tweet {
 	}
 	username := user.ScreenName
 	name := user.Name
+
+	profile := parseProfile(*user)
+
 	tw := &Tweet{
 		ConversationID: tweet.ConversationIDStr,
 		ID:             tweetID,
@@ -170,7 +173,7 @@ func parseLegacyTweet(user *legacyUser, tweet *legacyTweet) *Tweet {
 		Text:           tweet.FullText,
 		UserID:         tweet.UserIDStr,
 		Username:       username,
-		User: 			&parseProfile(user),
+		User: 			&profile,
 	}
 
 	tm, err := time.Parse(time.RubyDate, tweet.CreatedAt)
