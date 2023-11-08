@@ -66,7 +66,7 @@ type (
 		Videos            []Video
 		Views             int
 		SensitiveContent  bool
-		User              *Profile
+		User              *legacyUser
 	}
 
 	// ProfileResult of scrapping.
