@@ -174,7 +174,7 @@ func parseLegacyTweet(user *legacyUser, tweet *legacyTweet, isBlueVerified bool)
 		UserID:         tweet.UserIDStr,
 		Username:       username,
 		User: 			&profile,
-		IsBlueVerified: isBlueVerified 
+		IsBlueVerified: isBlueVerified,
 	}
 
 	tm, err := time.Parse(time.RubyDate, tweet.CreatedAt)
