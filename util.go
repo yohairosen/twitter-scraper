@@ -152,7 +152,7 @@ func getTweetTimeline(ctx context.Context, query string, maxTweetsNbr int, fetch
 	return channel
 }
 
-func parseLegacyTweet(user *legacyUser, tweet *legacyTweet) *Tweet {
+func parseLegacyTweet(user *legacyUser, tweet *legacyTweet, isBlueVerified bool) *Tweet {
 	tweetID := tweet.IDStr
 	if tweetID == "" {
 		return nil
@@ -174,6 +174,7 @@ func parseLegacyTweet(user *legacyUser, tweet *legacyTweet) *Tweet {
 		UserID:         tweet.UserIDStr,
 		Username:       username,
 		User: 			&profile,
+		IsBlueVerified: isBlueVerified 
 	}
 
 	tm, err := time.Parse(time.RubyDate, tweet.CreatedAt)

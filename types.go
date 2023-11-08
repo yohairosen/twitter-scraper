@@ -67,6 +67,7 @@ type (
 		Views             int
 		SensitiveContent  bool
 		User              *Profile
+		IsBlueVerified    bool
 	}
 
 	// ProfileResult of scrapping.
