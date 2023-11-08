@@ -34,7 +34,7 @@ func (result *result) parse() *Tweet {
 	if result.NoteTweet.NoteTweetResults.Result.Text != "" {
 		result.Legacy.FullText = result.NoteTweet.NoteTweetResults.Result.Text
 	}
-	tw := parseLegacyTweet(&result.Core.UserResults.Result.Legacy, &result.Legacy, &result.Core.UserResults.Result.IsBlueVerified)
+	tw := parseLegacyTweet(&result.Core.UserResults.Result.Legacy, &result.Legacy, result.Core.UserResults.Result.IsBlueVerified)
 	if tw == nil {
 		return nil
 	}

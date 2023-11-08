@@ -199,7 +199,7 @@ func parseLegacyTweet(user *legacyUser, tweet *legacyTweet, isBlueVerified bool)
 		tw.IsRetweet = true
 		tw.RetweetedStatusID = tweet.RetweetedStatusIDStr
 		if tweet.RetweetedStatusResult.Result != nil {
-			tw.RetweetedStatus = parseLegacyTweet(&tweet.RetweetedStatusResult.Result.Core.UserResults.Result.Legacy, &tweet.RetweetedStatusResult.Result.Legacy)
+			tw.RetweetedStatus = parseLegacyTweet(&tweet.RetweetedStatusResult.Result.Core.UserResults.Result.Legacy, &tweet.RetweetedStatusResult.Result.Legacy, tweet.RetweetedStatusResult.Result.Core.UserResults.Result.IsBlueVerified)
 			tw.RetweetedStatusID = tw.RetweetedStatus.ID
 		}
 	}
