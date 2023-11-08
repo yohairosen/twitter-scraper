@@ -170,7 +170,7 @@ func parseLegacyTweet(user *legacyUser, tweet *legacyTweet) *Tweet {
 		Text:           tweet.FullText,
 		UserID:         tweet.UserIDStr,
 		Username:       username,
-		Avatar:		tweet.User.ProfileImageURLHttps,
+		Avatar:		legacyUser.ProfileImageURLHttps,
 	}
 
 	tm, err := time.Parse(time.RubyDate, tweet.CreatedAt)
